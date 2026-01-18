@@ -17,8 +17,8 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_BRANCH: openwrt-21.02  # 此分支为 5.4 内核，匹配你的 5.4.284
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
@@ -26,7 +26,10 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
-  TZ: Asia/Shanghai
+  TARGET: mediatek  # 芯片厂商
+  SUBTARGET: filogic  # 子架构
+  PROFILE: xiaomi_ax3000t  # 设备型号
+  KERNEL_VERSION: 5.4.284  # 强制匹配内核
 
 jobs:
   build:
